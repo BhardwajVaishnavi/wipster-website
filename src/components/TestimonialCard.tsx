@@ -21,12 +21,12 @@ const Card = styled(motion.div)`
   display: flex;
   flex-direction: column;
   transition: ${({ theme }) => theme.transitions.default};
-  
+
   &:hover {
     box-shadow: ${({ theme }) => theme.shadows.xl};
     transform: translateY(-5px);
   }
-  
+
   &::before {
     content: '';
     position: absolute;
@@ -113,7 +113,7 @@ const cardVariants = {
 // Function to get the appropriate Unsplash image for a testimonial
 const getTestimonialImage = (testimonialName: string) => {
   const name = testimonialName.toLowerCase();
-  
+
   if (name.includes('rajesh')) {
     return getUnsplashImage(unsplashImages.testimonials.client1);
   } else if (name.includes('priya')) {
@@ -151,7 +151,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial, index })
         <Quote>"{testimonial.testimonial}"</Quote>
       </Content>
       <Author>
-        <Avatar image={getTestimonialImage(testimonial.name)} />
+        <Avatar image={getUnsplashImage(testimonial.image)} />
         <AuthorInfo>
           <Name>{testimonial.name}</Name>
           <Company>{testimonial.company}</Company>

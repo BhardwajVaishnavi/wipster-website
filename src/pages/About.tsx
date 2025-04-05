@@ -277,7 +277,7 @@ const About: React.FC = () => {
           >
             <h2>Our Story</h2>
             <p>
-              Founded in 2013 by Pritish Dhal and Vaishnavi Bhardwaj, Wipster Technologies began with a vision to bridge the gap between technology and business needs. What started as a small team of passionate developers has grown into a full-service IT company with expertise across various domains.
+              Founded in 2022 by Pritish Dhal and Vaishnavi Bhardwaj, Wipster Technologies began with a vision to bridge the gap between technology and business needs. What started as a small team of passionate developers has grown into a full-service IT company with expertise across various domains.
             </p>
             <p>
               Over the years, we have successfully delivered hundreds of projects for clients ranging from startups to Fortune 500 companies. Our commitment to quality, innovation, and client satisfaction has been the cornerstone of our growth and success.
