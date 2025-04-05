@@ -16,7 +16,7 @@ const Card = styled(motion.div)`
   box-shadow: ${({ theme }) => theme.shadows.md};
   overflow: hidden;
   position: relative;
-  height: 100%;
+  height: auto;
   display: flex;
   flex-direction: column;
   transition: ${({ theme }) => theme.transitions.default};
@@ -33,7 +33,7 @@ const Card = styled(motion.div)`
 
 const ImageContainer = styled.div`
   position: relative;
-  height: 300px;
+  height: 400px;
   overflow: hidden;
 `;
 
@@ -41,7 +41,8 @@ const Image = styled.div<{ image: string }>`
   width: 100%;
   height: 100%;
   background-image: url(${({ image }) => image});
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
   background-position: center;
   transition: transform 0.5s ease;
 `;
@@ -151,7 +152,7 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ member, index }) => {
     >
       <ImageContainer>
         <Image
-          image={getTeamMemberImage(member.name)}
+          image={member.image}
           className="member-image"
         />
         {member.isFounder && <FounderBadge>Founder</FounderBadge>}

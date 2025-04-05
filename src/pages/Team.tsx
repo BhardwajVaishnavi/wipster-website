@@ -15,7 +15,7 @@ const HeroSection = styled(Section)`
   align-items: center;
   position: relative;
   overflow: hidden;
-  
+
   &::before {
     content: '';
     position: absolute;
@@ -34,16 +34,16 @@ const HeroContent = styled.div`
   color: ${({ theme }) => theme.colors.light};
   max-width: 800px;
   margin: 0 auto;
-  
+
   h1 {
     font-size: clamp(2.5rem, 5vw, 4rem);
     margin-bottom: ${({ theme }) => theme.space[6]};
-    
+
     span {
       color: ${({ theme }) => theme.colors.primary};
     }
   }
-  
+
   p {
     font-size: ${({ theme }) => theme.fontSizes.xl};
     margin-bottom: ${({ theme }) => theme.space[8]};
@@ -59,7 +59,7 @@ const FoundersGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: ${({ theme }) => theme.space[8]};
-  
+
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     grid-template-columns: 1fr;
   }
@@ -69,11 +69,11 @@ const TeamGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: ${({ theme }) => theme.space[8]};
-  
+
   @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     grid-template-columns: 1fr;
   }
@@ -88,11 +88,11 @@ const ValuesGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: ${({ theme }) => theme.space[8]};
-  
+
   @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     grid-template-columns: 1fr;
   }
@@ -104,19 +104,19 @@ const ValueCard = styled(motion.div)`
   padding: ${({ theme }) => theme.space[6]};
   text-align: center;
   backdrop-filter: blur(10px);
-  
+
   .icon {
     font-size: 2.5rem;
     color: ${({ theme }) => theme.colors.light};
     margin-bottom: ${({ theme }) => theme.space[4]};
   }
-  
+
   h3 {
     font-size: ${({ theme }) => theme.fontSizes.xl};
     margin-bottom: ${({ theme }) => theme.space[3]};
     color: ${({ theme }) => theme.colors.light};
   }
-  
+
   p {
     color: rgba(255, 255, 255, 0.8);
     line-height: ${({ theme }) => theme.lineHeights.relaxed};
@@ -130,12 +130,12 @@ const JoinTeamSection = styled(Section)`
 const JoinTeamContent = styled.div`
   max-width: 800px;
   margin: 0 auto;
-  
+
   h2 {
     font-size: ${({ theme }) => theme.fontSizes['3xl']};
     margin-bottom: ${({ theme }) => theme.space[6]};
   }
-  
+
   p {
     color: ${({ theme }) => theme.colors.gray};
     margin-bottom: ${({ theme }) => theme.space[8]};
@@ -156,8 +156,7 @@ const valueCardVariants = {
 };
 
 const Team: React.FC = () => {
-  const founders = teamData.filter(member => member.isFounder);
-  const teamMembers = teamData.filter(member => !member.isFounder);
+  const founders = teamData;
 
   return (
     <>
@@ -194,40 +193,29 @@ const Team: React.FC = () => {
           </motion.div>
         </HeroContent>
       </HeroSection>
-      
+
       <FoundersSection id="founders">
         <SectionTitle
           title="Our Founders"
           subtitle="Meet the visionaries who established Wipster Technologies and continue to lead its growth and innovation."
         />
-        
+
         <FoundersGrid>
           {founders.map((founder, index) => (
             <TeamMemberCard key={founder.id} member={founder} index={index} />
           ))}
         </FoundersGrid>
       </FoundersSection>
-      
-      <Section id="leadership-team">
-        <SectionTitle
-          title="Leadership Team"
-          subtitle="Our leadership team brings diverse expertise and a shared commitment to excellence."
-        />
-        
-        <TeamGrid>
-          {teamMembers.map((member, index) => (
-            <TeamMemberCard key={member.id} member={member} index={index} />
-          ))}
-        </TeamGrid>
-      </Section>
-      
+
+
+
       <ValuesSection id="our-values">
         <SectionTitle
           title="Our Values"
           subtitle="The core principles that guide our work and define our culture."
           light
         />
-        
+
         <ValuesGrid>
           <ValueCard
             initial="hidden"
@@ -242,7 +230,7 @@ const Team: React.FC = () => {
             <h3>Innovation</h3>
             <p>We constantly seek new and better ways to solve problems and create value for our clients.</p>
           </ValueCard>
-          
+
           <ValueCard
             initial="hidden"
             whileInView="visible"
@@ -256,7 +244,7 @@ const Team: React.FC = () => {
             <h3>Integrity</h3>
             <p>We conduct our business with honesty, transparency, and the highest ethical standards.</p>
           </ValueCard>
-          
+
           <ValueCard
             initial="hidden"
             whileInView="visible"
@@ -270,7 +258,7 @@ const Team: React.FC = () => {
             <h3>Collaboration</h3>
             <p>We believe in the power of teamwork and partnership to achieve exceptional results.</p>
           </ValueCard>
-          
+
           <ValueCard
             initial="hidden"
             whileInView="visible"
@@ -286,7 +274,7 @@ const Team: React.FC = () => {
           </ValueCard>
         </ValuesGrid>
       </ValuesSection>
-      
+
       <JoinTeamSection id="join-our-team">
         <JoinTeamContent>
           <motion.h2
@@ -297,7 +285,7 @@ const Team: React.FC = () => {
           >
             Join Our Team
           </motion.h2>
-          
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -306,7 +294,7 @@ const Team: React.FC = () => {
           >
             We're always looking for talented individuals who share our passion for technology and innovation. At Wipster Technologies, you'll have the opportunity to work on exciting projects, learn from industry experts, and grow your career in a supportive and collaborative environment.
           </motion.p>
-          
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
