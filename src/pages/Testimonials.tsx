@@ -26,7 +26,7 @@ const TestimonialsGrid = styled.div`
 `;
 
 const TestimonialCard = styled(motion.div)`
-  background-color: #FFFFFF;
+  background-color: #0000002b;
   border-radius: ${({ theme }) => theme.radii.lg};
   box-shadow: ${({ theme }) => theme.shadows.md};
   padding: ${({ theme }) => theme.space[8]};
@@ -349,60 +349,6 @@ const Testimonials: React.FC = () => {
               </TestimonialCard>
             ))}
           </TestimonialsGrid>
-          
-          <VideoTestimonials>
-            <SectionTitle
-              title="Video Testimonials"
-              subtitle="Watch our clients share their experiences working with Wipster Technologies."
-              size="medium"
-            />
-            
-            <VideoGrid>
-              <VideoCard
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                custom={0}
-                variants={cardVariants}
-              >
-                <div className="video-container">
-                  <iframe
-                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                    title="Client Testimonial - HealthTech Solutions"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
-                </div>
-                <div className="video-info">
-                  <h3>HealthTech Solutions Success Story</h3>
-                  <p>How we helped transform their patient management system</p>
-                </div>
-              </VideoCard>
-              
-              <VideoCard
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                custom={1}
-                variants={cardVariants}
-              >
-                <div className="video-container">
-                  <iframe
-                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                    title="Client Testimonial - FinTech Innovations"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
-                </div>
-                <div className="video-info">
-                  <h3>FinTech Innovations Partnership</h3>
-                  <p>Building a secure and scalable financial platform</p>
-                </div>
-              </VideoCard>
-            </VideoGrid>
-          </VideoTestimonials>
         </TestimonialsContainer>
       </Section>
       

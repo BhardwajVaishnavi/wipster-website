@@ -61,8 +61,8 @@ const App: React.FC = () => {
         <ScrollToTop />
         <ScrollProgress />
         <BackToTop />
-        <Navbar />
-        <AnimatePresence mode="wait">
+        <Navbar transparent={true} />
+        <AnimatePresence mode="wait" onExitComplete={() => window.scrollTo(0, 0)}>
           <Routes>
             <Route path="/" element={<Home />} />
 

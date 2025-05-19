@@ -30,7 +30,7 @@ const BlogHeader = styled.div`
 const SearchBar = styled.div`
   display: flex;
   align-items: center;
-  background-color: #FFFFFF;
+  background-color: #0000002b;
   border-radius: ${({ theme }) => theme.radii.md};
   padding: ${({ theme }) => theme.space[2]} ${({ theme }) => theme.space[4]};
   box-shadow: ${({ theme }) => theme.shadows.sm};
@@ -67,7 +67,7 @@ const BlogLayout = styled.div`
 const BlogMain = styled.div``;
 
 const FeaturedPost = styled.div`
-  background-color: #FFFFFF;
+  background-color: #0000002b;
   border-radius: ${({ theme }) => theme.radii.lg};
   box-shadow: ${({ theme }) => theme.shadows.md};
   overflow: hidden;
@@ -144,7 +144,7 @@ const PostsGrid = styled.div`
 `;
 
 const PostCard = styled(motion.div)`
-  background-color: #FFFFFF;
+  background-color: #0000002b;
   border-radius: ${({ theme }) => theme.radii.lg};
   box-shadow: ${({ theme }) => theme.shadows.md};
   overflow: hidden;
@@ -238,7 +238,7 @@ const PostCard = styled(motion.div)`
 const BlogSidebar = styled.div``;
 
 const SidebarSection = styled.div`
-  background-color: #FFFFFF;
+  background-color: #0000002b;
   border-radius: ${({ theme }) => theme.radii.lg};
   box-shadow: ${({ theme }) => theme.shadows.md};
   padding: ${({ theme }) => theme.space[6]};
@@ -375,7 +375,7 @@ const Pagination = styled.div`
       width: 40px;
       height: 40px;
       border-radius: ${({ theme }) => theme.radii.md};
-      background-color: #FFFFFF;
+      background-color: #0000002b;
       color: ${({ theme }) => theme.colors.text};
       box-shadow: ${({ theme }) => theme.shadows.sm};
       transition: all 0.3s ease;

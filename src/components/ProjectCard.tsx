@@ -186,13 +186,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             <TechBadge key={idx}>{tech}</TechBadge>
           ))}
         </TechStack>
-        <ViewProject
-          href={`/portfolio/case-studies/${project.id}`}
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-        >
-          View Project <FaExternalLinkAlt />
-        </ViewProject>
+        
       </Content>
     </Card>
   );

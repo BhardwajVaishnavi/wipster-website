@@ -37,6 +37,12 @@ const NavContainer = styled(motion.header)<{ scrolled: boolean; transparent: boo
       : '#1A1A2E'};
   box-shadow: ${({ scrolled }) =>
     scrolled ? '0 4px 20px rgba(0, 0, 0, 0.3)' : '0 2px 10px rgba(0, 0, 0, 0.2)'};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    padding: 0.5rem 0;
+    height: auto;
+    background: #161b2b;
+  }
 `;
 
 const NavInner = styled.div`
@@ -48,7 +54,9 @@ const NavInner = styled.div`
   padding: 0 ${({ theme }) => theme.space[4]};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    grid-template-columns: 1fr auto auto;
+    grid-template-columns: auto 1fr auto;
+    justify-content: space-between;
+    gap: ${({ theme }) => theme.space[4]};
   }
 `;
 
@@ -57,6 +65,11 @@ const SocialIconsContainer = styled.div`
   align-items: center;
   gap: ${({ theme }) => theme.space[3]};
   margin-top: 12px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    margin-top: 0;
+    gap: ${({ theme }) => theme.space[2]};
+  }
 `;
 
 const SocialIcon = styled.a`
@@ -70,6 +83,10 @@ const SocialIcon = styled.a`
   &:hover {
     color: ${({ theme }) => theme.colors.primary};
     transform: translateY(-2px);
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    font-size: 1rem;
   }
 `;
 
@@ -86,6 +103,14 @@ const Logo = styled(Link)`
 
   &:hover {
     color: ${({ theme }) => theme.colors.primary};
+  }
+
+  &.mobile-logo {
+    display: none;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    display: none;
   }
 `;
 
@@ -113,7 +138,7 @@ const ButtonGroup = styled.div`
   }
 `;
 
-const NavLink = styled(Link)<{ active?: boolean }>`
+const StyledNavLink = styled(Link)<{ active?: boolean }>`
   color: ${({ active, theme }) =>
     active ? theme.colors.primary : theme.colors.light};
   text-decoration: none;
@@ -133,6 +158,8 @@ const MobileMenuButton = styled.button`
   font-size: 1.5rem;
   cursor: pointer;
   display: none;
+  padding: 0;
+  margin-left: auto;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
     display: block;
@@ -145,11 +172,12 @@ const MobileMenu = styled(motion.div)`
   left: 0;
   width: 100%;
   height: 100vh;
-  background: ${({ theme }) => theme.colors.background};
+  background: #161b2b;
   z-index: 1001;
   display: flex;
   flex-direction: column;
-  padding: ${({ theme }) => theme.space[6]};
+  padding: ${({ theme }) => theme.space[6]} ${({ theme }) => theme.space[4]};
+  overflow-y: auto;
 `;
 
 const MobileMenuHeader = styled.div`
@@ -170,8 +198,9 @@ const CloseButton = styled.button`
 const MobileNavLinks = styled.div`
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.space[4]};
+  gap: ${({ theme }) => theme.space[2]};
   margin-bottom: ${({ theme }) => theme.space[6]};
+  padding: 0 ${({ theme }) => theme.space[2]};
 `;
 
 const MobileNavLink = styled(Link)<{ active?: boolean }>`
@@ -181,8 +210,10 @@ const MobileNavLink = styled(Link)<{ active?: boolean }>`
   font-size: ${({ theme }) => theme.fontSizes.lg};
   font-weight: ${({ active, theme }) =>
     active ? theme.fontWeights.semibold : theme.fontWeights.normal};
-  padding: ${({ theme }) => theme.space[3]} 0;
+  padding: ${({ theme }) => theme.space[2]} 0;
   transition: ${({ theme }) => theme.transitions.default};
+  display: block;
+  line-height: 1.5;
 
   &:hover {
     color: ${({ theme }) => theme.colors.primary};
@@ -194,6 +225,13 @@ const MobileButtonGroup = styled.div`
   flex-direction: column;
   gap: ${({ theme }) => theme.space[4]};
   margin-top: auto;
+`;
+
+const MobileSocialIcons = styled.div`
+  display: flex;
+  gap: ${({ theme }) => theme.space[4]};
+  margin-top: ${({ theme }) => theme.space[6]};
+  justify-content: center;
 `;
 
 const Overlay = styled(motion.div)`
@@ -269,7 +307,6 @@ const navLinks: NavLink[] = [
   { path: '/services', label: 'Services', dropdown: servicesDropdown },
   { path: '/portfolio', label: 'Portfolio', dropdown: portfolioDropdown },
   { path: '/blog', label: 'Blog' },
-  { path: '/contact', label: 'Contact' },
 ];
 
 interface NavbarProps {
@@ -322,10 +359,10 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
           <SocialIcon href="https://twitter.com" target="_blank" rel="noopener noreferrer">
             <FaTwitter />
           </SocialIcon>
-          <SocialIcon href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+          <SocialIcon href="https://www.instagram.com/wipstertechnology/" target="_blank" rel="noopener noreferrer">
             <FaInstagram />
           </SocialIcon>
-          <SocialIcon href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+          <SocialIcon href="https://www.linkedin.com/company/wipster-technologies" target="_blank" rel="noopener noreferrer">
             <FaLinkedin />
           </SocialIcon>
         </SocialIconsContainer>
@@ -336,24 +373,25 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
                 key={link.path}
                 title={link.label}
                 items={link.dropdown}
-                isActive={location.pathname.startsWith(link.path)}
+                isActive={
+                  location.pathname.startsWith(link.path) ||
+                  (link.label === 'About' && location.pathname === '/team') ||
+                  (link.dropdown && link.dropdown.some(item => location.pathname === item.path))
+                }
               />
             ) : (
-              <NavLink
+              <StyledNavLink
                 key={link.path}
                 to={link.path}
                 active={location.pathname === link.path}
               >
                 {link.label}
-              </NavLink>
+              </StyledNavLink>
             )
           ))}
         </NavLinks>
 
         <ButtonGroup>
-          <Button variant="outline" size="small">
-            Get a Quote
-          </Button>
           <Button size="small" as={Link} to="/contact">Contact Us</Button>
         </ButtonGroup>
 
@@ -393,7 +431,11 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
                       key={link.path}
                       title={link.label}
                       items={link.dropdown}
-                      isActive={location.pathname.startsWith(link.path)}
+                      isActive={
+                        location.pathname.startsWith(link.path) ||
+                        (link.label === 'About' && location.pathname === '/team') ||
+                        (link.dropdown && link.dropdown.some(item => location.pathname === item.path))
+                      }
                       onItemClick={closeMobileMenu}
                     />
                   ) : (
@@ -410,9 +452,6 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
               </MobileNavLinks>
 
               <MobileButtonGroup>
-                <Button variant="outline" size="medium" fullWidth>
-                  Get a Quote
-                </Button>
                 <Button
                   size="medium"
                   as={Link}
@@ -422,6 +461,21 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
                 >
                   Contact Us
                 </Button>
+
+                <MobileSocialIcons>
+                  <SocialIcon href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                    <FaFacebook />
+                  </SocialIcon>
+                  <SocialIcon href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                    <FaTwitter />
+                  </SocialIcon>
+                  <SocialIcon href="https://www.instagram.com/wipstertechnology/" target="_blank" rel="noopener noreferrer">
+                    <FaInstagram />
+                  </SocialIcon>
+                  <SocialIcon href="https://www.linkedin.com/company/wipster-technologies" target="_blank" rel="noopener noreferrer">
+                    <FaLinkedin />
+                  </SocialIcon>
+                </MobileSocialIcons>
               </MobileButtonGroup>
             </MobileMenu>
           </>

@@ -68,7 +68,7 @@ const FooterLogo = styled(Link)`
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-fill-color: transparent;
+    color: transparent;
   }
 `;
 
@@ -232,7 +232,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
                 <FaTwitter />
               </SocialLink>
               <SocialLink
-                href="https://instagram.com"
+                href="https://www.instagram.com/wipstertechnology/"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1 }}
@@ -241,7 +241,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
                 <FaInstagram />
               </SocialLink>
               <SocialLink
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/wipster-technologies"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1 }}

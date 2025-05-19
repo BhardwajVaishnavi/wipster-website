@@ -51,7 +51,7 @@ const ServiceTypesGrid = styled.div`
 `;
 
 const ServiceTypeCard = styled(motion.div)`
-  background-color: #FFFFFF;
+  background-color: #0000002b;
   border-radius: ${({ theme }) => theme.radii.lg};
   box-shadow: ${({ theme }) => theme.shadows.md};
   overflow: hidden;
@@ -77,7 +77,7 @@ const ServiceTypeCard = styled(motion.div)`
     
     h3 {
       font-size: ${({ theme }) => theme.fontSizes.xl};
-      color: #333333;
+      color: #fff;
       margin-bottom: ${({ theme }) => theme.space[3]};
     }
     
@@ -210,7 +210,7 @@ const TechnologiesGrid = styled.div`
 `;
 
 const TechnologyCard = styled(motion.div)`
-  background-color: #FFFFFF;
+  background-color: #0000002b;
   border-radius: ${({ theme }) => theme.radii.lg};
   box-shadow: ${({ theme }) => theme.shadows.md};
   padding: ${({ theme }) => theme.space[6]};
@@ -223,7 +223,7 @@ const TechnologyCard = styled(motion.div)`
   
   h3 {
     font-size: ${({ theme }) => theme.fontSizes.lg};
-    color: #333333;
+    color: #fff;
     margin-bottom: ${({ theme }) => theme.space[2]};
   }
   
@@ -261,7 +261,7 @@ const BenefitItem = styled(motion.div)`
   .content {
     h3 {
       font-size: ${({ theme }) => theme.fontSizes.lg};
-      color: #333333;
+      color: #fff;
       margin-bottom: ${({ theme }) => theme.space[2]};
     }
     
@@ -496,7 +496,7 @@ const BlockchainDevelopment: React.FC = () => {
                 custom={0}
                 variants={techVariants}
               >
-                <img src="/images/tech/ethereum.svg" alt="Ethereum" />
+                <img src="/images/Ethereum.png" alt="Ethereum" />
                 <h3>Ethereum</h3>
                 <p>For smart contracts and dApps</p>
               </TechnologyCard>
@@ -508,7 +508,7 @@ const BlockchainDevelopment: React.FC = () => {
                 custom={1}
                 variants={techVariants}
               >
-                <img src="/images/tech/solidity.svg" alt="Solidity" />
+                <img src="/images/Solidity.png" alt="Solidity" />
                 <h3>Solidity</h3>
                 <p>For Ethereum smart contract development</p>
               </TechnologyCard>
@@ -520,7 +520,7 @@ const BlockchainDevelopment: React.FC = () => {
                 custom={2}
                 variants={techVariants}
               >
-                <img src="/images/tech/hyperledger.svg" alt="Hyperledger" />
+                <img src="/images/Hyperledger.png" alt="Hyperledger" />
                 <h3>Hyperledger</h3>
                 <p>For enterprise blockchain solutions</p>
               </TechnologyCard>
@@ -532,7 +532,7 @@ const BlockchainDevelopment: React.FC = () => {
                 custom={3}
                 variants={techVariants}
               >
-                <img src="/images/tech/binance.svg" alt="Binance Smart Chain" />
+                <img src="/images/Binance Smart Chain.png" alt="Binance Smart Chain" />
                 <h3>Binance Smart Chain</h3>
                 <p>For cost-effective smart contracts</p>
               </TechnologyCard>
@@ -544,7 +544,7 @@ const BlockchainDevelopment: React.FC = () => {
                 custom={4}
                 variants={techVariants}
               >
-                <img src="/images/tech/web3js.svg" alt="Web3.js" />
+                <img src="/images/Web3js.png" alt="Web3.js" />
                 <h3>Web3.js</h3>
                 <p>For blockchain frontend integration</p>
               </TechnologyCard>
@@ -556,7 +556,7 @@ const BlockchainDevelopment: React.FC = () => {
                 custom={5}
                 variants={techVariants}
               >
-                <img src="/images/tech/truffle.svg" alt="Truffle" />
+                <img src="/images/Truffle.png" alt="Truffle" />
                 <h3>Truffle</h3>
                 <p>For smart contract development and testing</p>
               </TechnologyCard>
@@ -568,7 +568,7 @@ const BlockchainDevelopment: React.FC = () => {
                 custom={6}
                 variants={techVariants}
               >
-                <img src="/images/tech/ipfs.svg" alt="IPFS" />
+                <img src="/images/IPFS.png" alt="IPFS" />
                 <h3>IPFS</h3>
                 <p>For decentralized storage</p>
               </TechnologyCard>
@@ -580,7 +580,7 @@ const BlockchainDevelopment: React.FC = () => {
                 custom={7}
                 variants={techVariants}
               >
-                <img src="/images/tech/metamask.svg" alt="MetaMask" />
+                <img src="/images/MetaMask.png" alt="MetaMask" />
                 <h3>MetaMask</h3>
                 <p>For wallet integration</p>
               </TechnologyCard>

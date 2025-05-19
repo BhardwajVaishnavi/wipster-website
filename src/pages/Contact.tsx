@@ -4,50 +4,9 @@ import { motion } from 'framer-motion';
 import Section from '../components/Section';
 import SectionTitle from '../components/SectionTitle';
 import ContactForm from '../components/ContactForm';
+import Hero from '../components/Hero';
 import { contactData } from '../data/contactData';
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa';
-
-const HeroSection = styled(Section)`
-  min-height: 60vh;
-  display: flex;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(30, 41, 59, 0.8)),
-      url('/contact-hero.jpg') no-repeat center center/cover;
-    z-index: -1;
-  }
-`;
-
-const HeroContent = styled.div`
-  text-align: center;
-  color: ${({ theme }) => theme.colors.light};
-  max-width: 800px;
-  margin: 0 auto;
-
-  h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    margin-bottom: ${({ theme }) => theme.space[6]};
-
-    span {
-      color: ${({ theme }) => theme.colors.primary};
-    }
-  }
-
-  p {
-    font-size: ${({ theme }) => theme.fontSizes.xl};
-    margin-bottom: ${({ theme }) => theme.space[8]};
-    color: rgba(255, 255, 255, 0.8);
-  }
-`;
 
 const ContactGrid = styled.div`
   display: grid;
@@ -181,24 +140,9 @@ const MapContainer = styled.div`
 const Contact: React.FC = () => {
   return (
     <>
-      <HeroSection fullHeight padding="none">
-        <HeroContent>
-          <motion.h1
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            Get in <span>Touch</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            Have a question or want to discuss a project? We'd love to hear from you. Reach out to us using the contact information below or fill out the form, and we'll get back to you as soon as possible.
-          </motion.p>
-        </HeroContent>
-      </HeroSection>
+      <Hero
+        useVideo={false}
+      />
 
       <Section id="contact-us">
         <SectionTitle

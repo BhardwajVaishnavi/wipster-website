@@ -51,7 +51,7 @@ const ServiceTypesGrid = styled.div`
 `;
 
 const ServiceTypeCard = styled(motion.div)`
-  background-color: #FFFFFF;
+  background-color: #0000002b;
   border-radius: ${({ theme }) => theme.radii.lg};
   box-shadow: ${({ theme }) => theme.shadows.md};
   overflow: hidden;
@@ -77,7 +77,7 @@ const ServiceTypeCard = styled(motion.div)`
     
     h3 {
       font-size: ${({ theme }) => theme.fontSizes.xl};
-      color: #333333;
+      color: #fff;
       margin-bottom: ${({ theme }) => theme.space[3]};
     }
     
@@ -210,7 +210,7 @@ const TechnologiesGrid = styled.div`
 `;
 
 const TechnologyCard = styled(motion.div)`
-  background-color: #FFFFFF;
+  background-color: #0000002b;
   border-radius: ${({ theme }) => theme.radii.lg};
   box-shadow: ${({ theme }) => theme.shadows.md};
   padding: ${({ theme }) => theme.space[6]};
@@ -223,7 +223,7 @@ const TechnologyCard = styled(motion.div)`
   
   h3 {
     font-size: ${({ theme }) => theme.fontSizes.lg};
-    color: #333333;
+    color: #fff;
     margin-bottom: ${({ theme }) => theme.space[2]};
   }
   
@@ -261,7 +261,7 @@ const BenefitItem = styled(motion.div)`
   .content {
     h3 {
       font-size: ${({ theme }) => theme.fontSizes.lg};
-      color: #333333;
+      color: #fff;
       margin-bottom: ${({ theme }) => theme.space[2]};
     }
     
@@ -496,7 +496,7 @@ const CloudSolutions: React.FC = () => {
                 custom={0}
                 variants={techVariants}
               >
-                <img src="/images/tech/aws.svg" alt="Amazon Web Services" />
+                <img src="/images/AWS.png" alt="Amazon Web Services" />
                 <h3>AWS</h3>
                 <p>Comprehensive cloud computing platform</p>
               </TechnologyCard>
@@ -508,7 +508,7 @@ const CloudSolutions: React.FC = () => {
                 custom={1}
                 variants={techVariants}
               >
-                <img src="/images/tech/azure.svg" alt="Microsoft Azure" />
+                <img src="/images/Microsoft Azure.png" alt="Microsoft Azure" />
                 <h3>Microsoft Azure</h3>
                 <p>Enterprise-grade cloud services</p>
               </TechnologyCard>
@@ -520,7 +520,7 @@ const CloudSolutions: React.FC = () => {
                 custom={2}
                 variants={techVariants}
               >
-                <img src="/images/tech/gcp.svg" alt="Google Cloud Platform" />
+                <img src="/images/Google Cloud.png" alt="Google Cloud Platform" />
                 <h3>Google Cloud</h3>
                 <p>Innovative cloud computing solutions</p>
               </TechnologyCard>
@@ -532,7 +532,7 @@ const CloudSolutions: React.FC = () => {
                 custom={3}
                 variants={techVariants}
               >
-                <img src="/images/tech/kubernetes.svg" alt="Kubernetes" />
+                <img src="/images/Kubernetes.png" alt="Kubernetes" />
                 <h3>Kubernetes</h3>
                 <p>Container orchestration platform</p>
               </TechnologyCard>
@@ -544,7 +544,7 @@ const CloudSolutions: React.FC = () => {
                 custom={4}
                 variants={techVariants}
               >
-                <img src="/images/tech/docker.svg" alt="Docker" />
+                <img src="/images/Docker.png" alt="Docker" />
                 <h3>Docker</h3>
                 <p>Containerization technology</p>
               </TechnologyCard>
@@ -556,7 +556,7 @@ const CloudSolutions: React.FC = () => {
                 custom={5}
                 variants={techVariants}
               >
-                <img src="/images/tech/terraform.svg" alt="Terraform" />
+                <img src="/images/Terraform.png" alt="Terraform" />
                 <h3>Terraform</h3>
                 <p>Infrastructure as code tool</p>
               </TechnologyCard>
@@ -568,7 +568,7 @@ const CloudSolutions: React.FC = () => {
                 custom={6}
                 variants={techVariants}
               >
-                <img src="/images/tech/cloudflare.svg" alt="Cloudflare" />
+                <img src="/images/Cloudflare.png" alt="Cloudflare" />
                 <h3>Cloudflare</h3>
                 <p>Web security and performance</p>
               </TechnologyCard>
@@ -580,7 +580,7 @@ const CloudSolutions: React.FC = () => {
                 custom={7}
                 variants={techVariants}
               >
-                <img src="/images/tech/serverless.svg" alt="Serverless" />
+                <img src="/images/Serverless.png" alt="Serverless" />
                 <h3>Serverless</h3>
                 <p>Event-driven computing platform</p>
               </TechnologyCard>

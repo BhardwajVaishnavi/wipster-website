@@ -51,7 +51,7 @@ const ServiceTypesGrid = styled.div`
 `;
 
 const ServiceTypeCard = styled(motion.div)`
-  background-color: #FFFFFF;
+  background-color: #0000002b;
   border-radius: ${({ theme }) => theme.radii.lg};
   box-shadow: ${({ theme }) => theme.shadows.md};
   overflow: hidden;
@@ -77,7 +77,7 @@ const ServiceTypeCard = styled(motion.div)`
 
     h3 {
       font-size: ${({ theme }) => theme.fontSizes.xl};
-      color: #333333;
+      color: #fff;
       margin-bottom: ${({ theme }) => theme.space[3]};
     }
 
@@ -210,7 +210,7 @@ const TechnologiesGrid = styled.div`
 `;
 
 const TechnologyCard = styled(motion.div)`
-  background-color: #FFFFFF;
+  background-color: #0000002b;
   border-radius: ${({ theme }) => theme.radii.lg};
   box-shadow: ${({ theme }) => theme.shadows.md};
   padding: ${({ theme }) => theme.space[6]};
@@ -223,7 +223,7 @@ const TechnologyCard = styled(motion.div)`
 
   h3 {
     font-size: ${({ theme }) => theme.fontSizes.lg};
-    color: #333333;
+    color: #fff;
     margin-bottom: ${({ theme }) => theme.space[2]};
   }
 
@@ -261,7 +261,7 @@ const BenefitItem = styled(motion.div)`
   .content {
     h3 {
       font-size: ${({ theme }) => theme.fontSizes.lg};
-      color: #333333;
+      color: #fff;
       margin-bottom: ${({ theme }) => theme.space[2]};
     }
 
@@ -496,7 +496,7 @@ const WebDevelopment: React.FC = () => {
                 custom={0}
                 variants={techVariants}
               >
-                <img src="/images/tech/react.svg" alt="React" />
+                <img src="/images/react.png" alt="React" />
                 <h3>React</h3>
                 <p>For building interactive user interfaces</p>
               </TechnologyCard>
@@ -508,7 +508,7 @@ const WebDevelopment: React.FC = () => {
                 custom={1}
                 variants={techVariants}
               >
-                <img src="/images/tech/node.svg" alt="Node.js" />
+                <img src="/images/nodejs.png" alt="Node.js" />
                 <h3>Node.js</h3>
                 <p>For scalable server-side applications</p>
               </TechnologyCard>
@@ -520,7 +520,7 @@ const WebDevelopment: React.FC = () => {
                 custom={2}
                 variants={techVariants}
               >
-                <img src="/images/tech/typescript.svg" alt="TypeScript" />
+                <img src="/images/typescript.png" alt="TypeScript" />
                 <h3>TypeScript</h3>
                 <p>For type-safe JavaScript development</p>
               </TechnologyCard>
@@ -532,7 +532,7 @@ const WebDevelopment: React.FC = () => {
                 custom={3}
                 variants={techVariants}
               >
-                <img src="/images/tech/next.svg" alt="Next.js" />
+                <img src="/images/nextjs.png" alt="Next.js" />
                 <h3>Next.js</h3>
                 <p>For server-side rendering and static sites</p>
               </TechnologyCard>
@@ -544,7 +544,7 @@ const WebDevelopment: React.FC = () => {
                 custom={4}
                 variants={techVariants}
               >
-                <img src="/images/tech/graphql.svg" alt="GraphQL" />
+                <img src="/images/GraphQL.png" alt="GraphQL" />
                 <h3>GraphQL</h3>
                 <p>For efficient API development</p>
               </TechnologyCard>
@@ -556,7 +556,7 @@ const WebDevelopment: React.FC = () => {
                 custom={5}
                 variants={techVariants}
               >
-                <img src="/images/tech/aws.svg" alt="AWS" />
+                <img src="/images/AWS.png" alt="AWS" />
                 <h3>AWS</h3>
                 <p>For cloud infrastructure and hosting</p>
               </TechnologyCard>
@@ -568,7 +568,7 @@ const WebDevelopment: React.FC = () => {
                 custom={6}
                 variants={techVariants}
               >
-                <img src="/images/tech/mongodb.svg" alt="MongoDB" />
+                <img src="/images/MongoDB.png" alt="MongoDB" />
                 <h3>MongoDB</h3>
                 <p>For flexible, scalable databases</p>
               </TechnologyCard>
@@ -580,7 +580,7 @@ const WebDevelopment: React.FC = () => {
                 custom={7}
                 variants={techVariants}
               >
-                <img src="/images/tech/docker.svg" alt="Docker" />
+                <img src="/images/Docker.png" alt="Docker" />
                 <h3>Docker</h3>
                 <p>For containerization and deployment</p>
               </TechnologyCard>

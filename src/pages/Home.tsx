@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import Hero from '../components/Hero';
 import Section from '../components/Section';
 import SectionTitle from '../components/SectionTitle';
 import ServiceCard from '../components/ServiceCard';
@@ -10,17 +9,17 @@ import ProjectCard from '../components/ProjectCard';
 import TestimonialCard from '../components/TestimonialCard';
 import Button from '../components/Button';
 import AnimatedText from '../components/AnimatedText';
-import CountUp from '../components/CountUp';
 import ParallaxSection from '../components/ParallaxSection';
 import { servicesData } from '../data/servicesData';
 import { projectsData } from '../data/projectsData';
 import { testimonialsData } from '../data/testimonialsData';
-import { getUnsplashImage, unsplashImages, unsplashVideos } from '../utils/unsplashImages';
+import { getUnsplashImage, unsplashImages } from '../utils/unsplashImages';
 import { FaRocket, FaUsers, FaLightbulb, FaCode, FaChartLine, FaArrowRight } from 'react-icons/fa';
-import useAnimations from '../hooks/useAnimations';
+import Hero from '../components/Hero';
 
 const StatsSection = styled(Section)`
-  margin-top: -100px;
+  margin-top: 0; /* No margin needed */
+  padding-top: 50px; /* Add padding instead */
   z-index: 10;
   position: relative;
 `;
@@ -62,6 +61,7 @@ const StatCard = styled(motion.div)`
   h3 {
     color: #333333;
     margin-bottom: ${({ theme }) => theme.space[3]};
+    font-size: 1.25rem;
   }
 
   p {
@@ -160,7 +160,9 @@ const statCardVariants = {
 const Home: React.FC = () => {
   return (
     <>
-      <Hero useVideo={true} />
+      <Hero
+        useVideo={false}
+      />
 
       <StatsSection padding="large">
         <StatsGrid>

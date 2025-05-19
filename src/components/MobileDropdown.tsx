@@ -28,17 +28,16 @@ const DropdownTrigger = styled.button<{ isOpen: boolean }>`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 12px 16px;
+  padding: 12px 0;
   font-family: inherit;
   font-size: 1rem;
   color: ${({ theme }) => theme.colors.light};
   font-weight: ${({ theme }) => theme.fontWeights.medium};
   text-align: left;
-  border-radius: 8px;
   transition: all 0.2s ease;
 
   &:hover {
-    background-color: rgba(78, 205, 196, 0.1);
+    color: ${({ theme }) => theme.colors.primary};
   }
 
   svg {
@@ -56,14 +55,13 @@ const DropdownMenu = styled(motion.div)`
 
 const DropdownItem = styled(Link)`
   display: block;
-  padding: 10px 16px 10px 32px;
-  color: #333333;
+  padding: 8px 0 8px 16px;
+  color: #FFFFFF;
   text-decoration: none;
   transition: all 0.2s ease;
   font-size: 0.95rem;
 
   &:hover {
-    background-color: rgba(78, 205, 196, 0.1);
     color: ${({ theme }) => theme.colors.primary};
   }
 `;
@@ -80,7 +78,7 @@ const ItemLabel = styled.span`
 
 const ItemDescription = styled.span`
   font-size: 0.75rem;
-  color: #666666;
+  color: rgba(255, 255, 255, 0.8);
 `;
 
 const MobileDropdown: React.FC<MobileDropdownProps> = ({

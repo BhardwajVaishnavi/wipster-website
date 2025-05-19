@@ -47,40 +47,50 @@ const DropdownTrigger = styled.button<{ isActive: boolean }>`
   }
 `;
 
-const DropdownMenu = styled(motion.div)`
+const DropdownMenu = styled(motion.div)<{ title?: string }>`
   position: absolute;
   top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  min-width: 220px;
+  left: ${({ title }) => title === 'Services' ? '-200px' : '0'};
+  width: ${({ title }) => title === 'Services' ? '600px' : '220px'};
+  max-height: ${({ title }) => title === 'Services' ? 'none' : '400px'};
+  overflow-y: ${({ title }) => title === 'Services' ? 'visible' : 'auto'};
   background-color: #F8F9FA;
   border-radius: 8px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  padding: 12px;
+  padding: 16px;
   z-index: 100;
   margin-top: 10px;
+
+  @media (max-width: 768px) {
+    left: 0;
+    width: 280px;
+    max-height: 400px;
+    overflow-y: auto;
+  }
 
   &::before {
     content: '';
     position: absolute;
     top: -6px;
-    left: 50%;
-    transform: translateX(-50%);
+    left: ${({ title }) => title === 'Services' ? '220px' : '20px'};
     width: 12px;
     height: 12px;
     background-color: #F8F9FA;
     border-radius: 2px;
-    transform: translateX(-50%) rotate(45deg);
+    transform: rotate(45deg);
   }
 `;
 
-const DropdownItem = styled(Link)`
+const DropdownItem = styled(Link)<{ title?: string }>`
   display: block;
-  padding: 10px 15px;
+  padding: 12px 15px;
   color: #333333;
   text-decoration: none;
   border-radius: 6px;
   transition: all 0.2s ease;
+  height: 100%;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 
   &:hover {
     background-color: ${({ theme }) => `rgba(78, 205, 196, 0.1)`};
@@ -92,16 +102,30 @@ const DropdownItem = styled(Link)`
 const DropdownItemWithDescription = styled(DropdownItem)`
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
 `;
 
 const ItemLabel = styled.span`
   font-weight: ${({ theme }) => theme.fontWeights.medium};
+  font-size: 0.9rem;
+  display: block;
 `;
 
 const ItemDescription = styled.span`
   font-size: 0.75rem;
   color: #666666;
+  display: block;
+`;
+
+const ServicesGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const dropdownVariants = {
@@ -163,27 +187,57 @@ const Dropdown: React.FC<DropdownProps> = ({ title, items, isActive = false }) =
             animate="visible"
             exit="hidden"
             variants={dropdownVariants}
+            title={title}
           >
-            {items.map((item, index) => (
-              item.description ? (
-                <DropdownItemWithDescription
-                  key={index}
-                  to={item.path}
-                  onClick={() => setIsOpen(false)}
-                >
-                  <ItemLabel>{item.label}</ItemLabel>
-                  <ItemDescription>{item.description}</ItemDescription>
-                </DropdownItemWithDescription>
-              ) : (
-                <DropdownItem
-                  key={index}
-                  to={item.path}
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item.label}
-                </DropdownItem>
-              )
-            ))}
+            {title === 'Services' ? (
+              <ServicesGrid>
+                {items.map((item, index) => (
+                  item.description ? (
+                    <DropdownItemWithDescription
+                      key={index}
+                      to={item.path}
+                      onClick={() => setIsOpen(false)}
+                      title={title}
+                    >
+                      <ItemLabel>{item.label}</ItemLabel>
+                      <ItemDescription>{item.description}</ItemDescription>
+                    </DropdownItemWithDescription>
+                  ) : (
+                    <DropdownItem
+                      key={index}
+                      to={item.path}
+                      onClick={() => setIsOpen(false)}
+                      title={title}
+                    >
+                      {item.label}
+                    </DropdownItem>
+                  )
+                ))}
+              </ServicesGrid>
+            ) : (
+              items.map((item, index) => (
+                item.description ? (
+                  <DropdownItemWithDescription
+                    key={index}
+                    to={item.path}
+                    onClick={() => setIsOpen(false)}
+                    title={title}
+                  >
+                    <ItemLabel>{item.label}</ItemLabel>
+                    <ItemDescription>{item.description}</ItemDescription>
+                  </DropdownItemWithDescription>
+                ) : (
+                  <DropdownItem
+                    key={index}
+                    to={item.path}
+                    onClick={() => setIsOpen(false)}
+                    title={title}
+                  >
+                    {item.label}
+                  </DropdownItem>
+                )
+              ))
+            )}
           </DropdownMenu>
         )}
       </AnimatePresence>

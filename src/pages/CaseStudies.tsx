@@ -16,7 +16,7 @@ const CaseStudiesContainer = styled.div`
 
 const FeaturedCaseStudy = styled.div`
   margin-bottom: ${({ theme }) => theme.space[16]};
-  background-color: #FFFFFF;
+  background-color: #0000002b;
   border-radius: ${({ theme }) => theme.radii.lg};
   box-shadow: ${({ theme }) => theme.shadows.lg};
   overflow: hidden;
@@ -34,6 +34,7 @@ const FeaturedContent = styled.div`
 const FeaturedImage = styled.div`
   height: 100%;
   min-height: 400px;
+  padding: 40px;
 
   img {
     width: 100%;
@@ -116,7 +117,7 @@ const CaseStudyGrid = styled.div`
 `;
 
 const CaseStudyCard = styled(motion.div)`
-  background-color: #FFFFFF;
+  background-color: #0000002b;
   border-radius: ${({ theme }) => theme.radii.lg};
   box-shadow: ${({ theme }) => theme.shadows.md};
   overflow: hidden;
@@ -389,9 +390,7 @@ const CaseStudies: React.FC = () => {
                   <span className="category">{study.category}</span>
                   <h3>{study.title}</h3>
                   <p>{study.description}</p>
-                  <Link to={`/portfolio/case-studies/${study.id}`} className="read-more">
-                    Read Case Study <FaArrowRight />
-                  </Link>
+                  
                 </div>
               </CaseStudyCard>
             ))}

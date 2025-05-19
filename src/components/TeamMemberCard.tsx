@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { FaLinkedin, FaTwitter, FaGithub, FaEnvelope } from 'react-icons/fa';
 import { TeamMember } from '../types';
-import { getUnsplashImage, unsplashImages } from '../utils/unsplashImages';
 
 interface TeamMemberCardProps {
   member: TeamMember;
@@ -119,26 +118,6 @@ const cardVariants = {
       duration: 0.5,
     },
   }),
-};
-
-// Function to get the appropriate Unsplash image for a team member
-const getTeamMemberImage = (memberName: string) => {
-  const name = memberName.toLowerCase();
-
-  if (name.includes('pritish')) {
-    return getUnsplashImage(unsplashImages.teamMembers.ceo);
-  } else if (name.includes('vaishnavi')) {
-    return getUnsplashImage(unsplashImages.teamMembers.cto);
-  } else if (name.includes('sweta')) {
-    return getUnsplashImage(unsplashImages.teamMembers.sales);
-  } else if (name.includes('samrita')) {
-    return getUnsplashImage(unsplashImages.teamMembers.technical);
-  } else if (name.includes('pritam')) {
-    return getUnsplashImage(unsplashImages.teamMembers.cdo);
-  } else {
-    // Default image if no match
-    return getUnsplashImage(unsplashImages.teamMembers.ceo);
-  }
 };
 
 const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ member, index }) => {

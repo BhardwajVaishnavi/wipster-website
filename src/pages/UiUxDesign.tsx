@@ -51,7 +51,7 @@ const ServiceTypesGrid = styled.div`
 `;
 
 const ServiceTypeCard = styled(motion.div)`
-  background-color: #FFFFFF;
+  background-color: #0000002b;
   border-radius: ${({ theme }) => theme.radii.lg};
   box-shadow: ${({ theme }) => theme.shadows.md};
   overflow: hidden;
@@ -77,7 +77,7 @@ const ServiceTypeCard = styled(motion.div)`
     
     h3 {
       font-size: ${({ theme }) => theme.fontSizes.xl};
-      color: #333333;
+      color: #fff;
       margin-bottom: ${({ theme }) => theme.space[3]};
     }
     
@@ -210,7 +210,7 @@ const TechnologiesGrid = styled.div`
 `;
 
 const TechnologyCard = styled(motion.div)`
-  background-color: #FFFFFF;
+  background-color: #0000002b;
   border-radius: ${({ theme }) => theme.radii.lg};
   box-shadow: ${({ theme }) => theme.shadows.md};
   padding: ${({ theme }) => theme.space[6]};
@@ -223,7 +223,7 @@ const TechnologyCard = styled(motion.div)`
   
   h3 {
     font-size: ${({ theme }) => theme.fontSizes.lg};
-    color: #333333;
+    color: #fff;
     margin-bottom: ${({ theme }) => theme.space[2]};
   }
   
@@ -261,7 +261,7 @@ const BenefitItem = styled(motion.div)`
   .content {
     h3 {
       font-size: ${({ theme }) => theme.fontSizes.lg};
-      color: #333333;
+      color: #fff;
       margin-bottom: ${({ theme }) => theme.space[2]};
     }
     
@@ -496,7 +496,7 @@ const UiUxDesign: React.FC = () => {
                 custom={0}
                 variants={techVariants}
               >
-                <img src="/images/tech/figma.svg" alt="Figma" />
+                <img src="/images/Figma.png" alt="Figma" />
                 <h3>Figma</h3>
                 <p>For collaborative design and prototyping</p>
               </TechnologyCard>
@@ -508,7 +508,7 @@ const UiUxDesign: React.FC = () => {
                 custom={1}
                 variants={techVariants}
               >
-                <img src="/images/tech/sketch.svg" alt="Sketch" />
+                <img src="/images/Sketch.png" alt="Sketch" />
                 <h3>Sketch</h3>
                 <p>For UI design and vector editing</p>
               </TechnologyCard>
@@ -520,7 +520,7 @@ const UiUxDesign: React.FC = () => {
                 custom={2}
                 variants={techVariants}
               >
-                <img src="/images/tech/adobe-xd.svg" alt="Adobe XD" />
+                <img src="/images/Adobe XD.png" alt="Adobe XD" />
                 <h3>Adobe XD</h3>
                 <p>For UI/UX design and prototyping</p>
               </TechnologyCard>
@@ -532,7 +532,7 @@ const UiUxDesign: React.FC = () => {
                 custom={3}
                 variants={techVariants}
               >
-                <img src="/images/tech/invision.svg" alt="InVision" />
+                <img src="/images/InVision.png" alt="InVision" />
                 <h3>InVision</h3>
                 <p>For interactive prototypes</p>
               </TechnologyCard>
@@ -544,7 +544,7 @@ const UiUxDesign: React.FC = () => {
                 custom={4}
                 variants={techVariants}
               >
-                <img src="/images/tech/zeplin.svg" alt="Zeplin" />
+                <img src="/images/Zeplin.png" alt="Zeplin" />
                 <h3>Zeplin</h3>
                 <p>For design handoff and collaboration</p>
               </TechnologyCard>
@@ -556,7 +556,7 @@ const UiUxDesign: React.FC = () => {
                 custom={5}
                 variants={techVariants}
               >
-                <img src="/images/tech/photoshop.svg" alt="Adobe Photoshop" />
+                <img src="/images/Adobe Photoshop.png" alt="Adobe Photoshop" />
                 <h3>Adobe Photoshop</h3>
                 <p>For image editing and manipulation</p>
               </TechnologyCard>
@@ -568,7 +568,7 @@ const UiUxDesign: React.FC = () => {
                 custom={6}
                 variants={techVariants}
               >
-                <img src="/images/tech/illustrator.svg" alt="Adobe Illustrator" />
+                <img src="/images/Adobe Illustrator.png" alt="Adobe Illustrator" />
                 <h3>Adobe Illustrator</h3>
                 <p>For vector graphics and illustrations</p>
               </TechnologyCard>
@@ -580,7 +580,7 @@ const UiUxDesign: React.FC = () => {
                 custom={7}
                 variants={techVariants}
               >
-                <img src="/images/tech/hotjar.svg" alt="Hotjar" />
+                <img src="/images/Hotjar.png" alt="Hotjar" />
                 <h3>Hotjar</h3>
                 <p>For user behavior analytics</p>
               </TechnologyCard>

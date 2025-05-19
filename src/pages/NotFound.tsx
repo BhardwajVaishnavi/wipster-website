@@ -30,7 +30,7 @@ const ErrorCode = styled.h1`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-fill-color: transparent;
+  color: transparent;
 `;
 
 const Title = styled.h2`
@@ -48,7 +48,7 @@ const ButtonGroup = styled.div`
   display: flex;
   gap: ${({ theme }) => theme.space[4]};
   justify-content: center;
-  
+
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     flex-direction: column;
     width: 100%;

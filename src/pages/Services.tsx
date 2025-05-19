@@ -7,60 +7,19 @@ import SectionTitle from '../components/SectionTitle';
 import Button from '../components/Button';
 import ServiceCard from '../components/ServiceCard';
 import FAQ from '../components/FAQ';
+import Hero from '../components/Hero';
 import { servicesData } from '../data/servicesData';
 import { FaArrowRight, FaLaptopCode, FaMobileAlt, FaPaintBrush, FaUsers, FaChartLine, FaCloud, FaShoppingCart, FaMegaport } from 'react-icons/fa';
-
-const HeroSection = styled(Section)`
-  min-height: 60vh;
-  display: flex;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(30, 41, 59, 0.8)),
-      url('/services-hero.jpg') no-repeat center center/cover;
-    z-index: -1;
-  }
-`;
-
-const HeroContent = styled.div`
-  text-align: center;
-  color: ${({ theme }) => theme.colors.light};
-  max-width: 800px;
-  margin: 0 auto;
-  
-  h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    margin-bottom: ${({ theme }) => theme.space[6]};
-    
-    span {
-      color: ${({ theme }) => theme.colors.primary};
-    }
-  }
-  
-  p {
-    font-size: ${({ theme }) => theme.fontSizes.xl};
-    margin-bottom: ${({ theme }) => theme.space[8]};
-    color: rgba(255, 255, 255, 0.8);
-  }
-`;
 
 const ServicesGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: ${({ theme }) => theme.space[8]};
-  
+
   @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     grid-template-columns: 1fr;
   }
@@ -80,18 +39,18 @@ const ServiceTabs = styled.div`
 
 const ServiceTab = styled.button<{ active: boolean }>`
   padding: ${({ theme }) => `${theme.space[3]} ${theme.space[5]}`};
-  background-color: ${({ active, theme }) => 
+  background-color: ${({ active, theme }) =>
     active ? theme.colors.primary : 'rgba(37, 99, 235, 0.1)'};
-  color: ${({ active, theme }) => 
+  color: ${({ active, theme }) =>
     active ? theme.colors.light : theme.colors.primary};
   border: none;
   border-radius: ${({ theme }) => theme.radii.full};
   font-weight: ${({ theme }) => theme.fontWeights.medium};
   cursor: pointer;
   transition: ${({ theme }) => theme.transitions.default};
-  
+
   &:hover {
-    background-color: ${({ active, theme }) => 
+    background-color: ${({ active, theme }) =>
       active ? theme.colors.primary : 'rgba(37, 99, 235, 0.2)'};
   }
 `;
@@ -101,7 +60,7 @@ const ServiceDetail = styled(motion.div)`
   grid-template-columns: 1fr 1fr;
   gap: ${({ theme }) => theme.space[12]};
   align-items: center;
-  
+
   @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
     grid-template-columns: 1fr;
   }
@@ -113,7 +72,7 @@ const ServiceImage = styled.div`
     border-radius: ${({ theme }) => theme.radii.lg};
     box-shadow: ${({ theme }) => theme.shadows.lg};
   }
-  
+
   @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
     order: 1;
   }
@@ -123,12 +82,12 @@ const ServiceInfo = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
     order: 2;
   }
-  
+
   h2 {
     font-size: ${({ theme }) => theme.fontSizes['3xl']};
     margin-bottom: ${({ theme }) => theme.space[6]};
     position: relative;
-    
+
     &::after {
       content: '';
       position: absolute;
@@ -140,7 +99,7 @@ const ServiceInfo = styled.div`
       border-radius: ${({ theme }) => theme.radii.full};
     }
   }
-  
+
   p {
     margin-bottom: ${({ theme }) => theme.space[6]};
     color: ${({ theme }) => theme.colors.gray};
@@ -152,12 +111,12 @@ const FeaturesList = styled.ul`
   list-style: none;
   padding: 0;
   margin-bottom: ${({ theme }) => theme.space[8]};
-  
+
   li {
     position: relative;
     padding-left: ${({ theme }) => theme.space[8]};
     margin-bottom: ${({ theme }) => theme.space[4]};
-    
+
     &::before {
       content: '✓';
       position: absolute;
@@ -184,11 +143,11 @@ const ProcessSteps = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: ${({ theme }) => theme.space[8]};
-  
+
   @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     grid-template-columns: 1fr;
   }
@@ -201,7 +160,7 @@ const ProcessStep = styled(motion.div)`
   padding: ${({ theme }) => theme.space[6]};
   text-align: center;
   position: relative;
-  
+
   &::after {
     content: '';
     position: absolute;
@@ -210,16 +169,16 @@ const ProcessStep = styled(motion.div)`
     width: 40px;
     height: 2px;
     background-color: ${({ theme }) => theme.colors.primary};
-    
+
     @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
       display: none;
     }
   }
-  
+
   &:last-child::after {
     display: none;
   }
-  
+
   .step-number {
     width: 60px;
     height: 60px;
@@ -233,12 +192,12 @@ const ProcessStep = styled(motion.div)`
     font-weight: ${({ theme }) => theme.fontWeights.bold};
     margin: 0 auto ${({ theme }) => theme.space[4]};
   }
-  
+
   h3 {
     font-size: ${({ theme }) => theme.fontSizes.xl};
     margin-bottom: ${({ theme }) => theme.space[3]};
   }
-  
+
   p {
     color: ${({ theme }) => theme.colors.gray};
     font-size: ${({ theme }) => theme.fontSizes.md};
@@ -249,12 +208,12 @@ const CTASection = styled(Section)`
   text-align: center;
   background: linear-gradient(135deg, ${({ theme }) => theme.colors.primary}, ${({ theme }) => theme.colors.accent});
   color: ${({ theme }) => theme.colors.light};
-  
+
   h2 {
     margin-bottom: ${({ theme }) => theme.space[6]};
     font-size: ${({ theme }) => theme.fontSizes['4xl']};
   }
-  
+
   p {
     max-width: 700px;
     margin: 0 auto ${({ theme }) => theme.space[8]};
@@ -295,53 +254,23 @@ const Services: React.FC = () => {
 
   return (
     <>
-      <HeroSection fullHeight padding="none">
-        <HeroContent>
-          <motion.h1
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            Our <span>Services</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            We offer a comprehensive range of IT services to help businesses thrive in the digital age. From web and mobile development to custom enterprise solutions, we've got you covered.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-          >
-            <Button
-              size="large"
-              as={Link}
-              to="/contact"
-              icon={<FaArrowRight />}
-              iconPosition="right"
-            >
-              Get a Free Consultation
-            </Button>
-          </motion.div>
-        </HeroContent>
-      </HeroSection>
-      
+      <Hero
+        useVideo={false}
+      />
+
       <Section id="all-services">
         <SectionTitle
           title="Our Services"
           subtitle="We provide end-to-end IT solutions tailored to your business needs."
         />
-        
+
         <ServicesGrid>
           {servicesData.map((service, index) => (
             <ServiceCard key={service.id} service={service} index={index} />
           ))}
         </ServicesGrid>
       </Section>
-      
+
       <ServiceDetailSection id="service-details">
         <ServiceTabs>
           {servicesData.map((service) => (
@@ -354,7 +283,7 @@ const Services: React.FC = () => {
             </ServiceTab>
           ))}
         </ServiceTabs>
-        
+
         <AnimatePresence mode="wait">
           <ServiceDetail
             key={activeService.id}
@@ -384,7 +313,7 @@ const Services: React.FC = () => {
                 Request a Quote
               </Button>
             </ServiceInfo>
-            
+
             <ServiceImage>
               <div style={{ color: '#2563EB', textAlign: 'center', marginBottom: '20px' }}>
                 {getServiceIcon(activeService.icon)}
@@ -394,13 +323,13 @@ const Services: React.FC = () => {
           </ServiceDetail>
         </AnimatePresence>
       </ServiceDetailSection>
-      
+
       <ProcessSection id="our-process">
         <SectionTitle
           title="Our Development Process"
           subtitle="We follow a structured approach to ensure the successful delivery of your project."
         />
-        
+
         <ProcessSteps>
           <ProcessStep
             initial={{ opacity: 0, y: 20 }}
@@ -412,7 +341,7 @@ const Services: React.FC = () => {
             <h3>Discovery</h3>
             <p>We start by understanding your business goals, requirements, and challenges to define the project scope.</p>
           </ProcessStep>
-          
+
           <ProcessStep
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -423,7 +352,7 @@ const Services: React.FC = () => {
             <h3>Planning</h3>
             <p>We create a detailed project plan, including timelines, milestones, and resource allocation.</p>
           </ProcessStep>
-          
+
           <ProcessStep
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -434,7 +363,7 @@ const Services: React.FC = () => {
             <h3>Development</h3>
             <p>Our team develops the solution using agile methodologies, with regular updates and feedback sessions.</p>
           </ProcessStep>
-          
+
           <ProcessStep
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -447,16 +376,16 @@ const Services: React.FC = () => {
           </ProcessStep>
         </ProcessSteps>
       </ProcessSection>
-      
+
       <FAQSection id="faqs">
         <SectionTitle
           title="Frequently Asked Questions"
           subtitle="Find answers to common questions about our services and processes."
         />
-        
+
         <FAQ />
       </FAQSection>
-      
+
       <CTASection>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -466,7 +395,7 @@ const Services: React.FC = () => {
         >
           Ready to Transform Your Business?
         </motion.h2>
-        
+
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -475,7 +404,7 @@ const Services: React.FC = () => {
         >
           Let's discuss how our services can help you achieve your business goals and stay ahead of the competition.
         </motion.p>
-        
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

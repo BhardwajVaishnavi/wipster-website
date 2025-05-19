@@ -6,11 +6,12 @@ import Section from '../components/Section';
 import SectionTitle from '../components/SectionTitle';
 import Button from '../components/Button';
 import TeamMemberCard from '../components/TeamMemberCard';
-import { teamData } from '../data/teamData';
+import CoreTeamMemberCard from '../components/CoreTeamMemberCard';
+import { teamData, coreTeamData } from '../data/teamData';
 import { FaArrowRight, FaUsers, FaLightbulb, FaHandshake, FaRocket } from 'react-icons/fa';
 
 const HeroSection = styled(Section)`
-  min-height: 60vh;
+  min-height: 70vh;
   display: flex;
   align-items: center;
   position: relative;
@@ -65,19 +66,7 @@ const FoundersGrid = styled.div`
   }
 `;
 
-const TeamGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: ${({ theme }) => theme.space[8]};
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    grid-template-columns: 1fr;
-  }
-`;
 
 const ValuesSection = styled(Section)`
   background: linear-gradient(135deg, ${({ theme }) => theme.colors.primary}, ${({ theme }) => theme.colors.accent});
@@ -123,8 +112,31 @@ const ValueCard = styled(motion.div)`
   }
 `;
 
+const CoreTeamSection = styled(Section)`
+  background-color: ${({ theme }) => theme.colors.background};
+  padding: ${({ theme }) => theme.space[12]} 0;
+`;
+
+const CoreTeamGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: ${({ theme }) => theme.space[10]};
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 ${({ theme }) => theme.space[4]};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    grid-template-columns: 1fr;
+  }
+`;
+
 const JoinTeamSection = styled(Section)`
   text-align: center;
+  /* background: linear-gradient(135deg, #FF6FB5, #F7B733); */
 `;
 
 const JoinTeamContent = styled.div`
@@ -194,7 +206,7 @@ const Team: React.FC = () => {
         </HeroContent>
       </HeroSection>
 
-      <FoundersSection id="founders">
+      {/* <FoundersSection id="founders">
         <SectionTitle
           title="Our Founders"
           subtitle="Meet the visionaries who established Wipster Technologies and continue to lead its growth and innovation."
@@ -205,7 +217,7 @@ const Team: React.FC = () => {
             <TeamMemberCard key={founder.id} member={founder} index={index} />
           ))}
         </FoundersGrid>
-      </FoundersSection>
+      </FoundersSection> */}
 
 
 
@@ -274,6 +286,19 @@ const Team: React.FC = () => {
           </ValueCard>
         </ValuesGrid>
       </ValuesSection>
+
+      <CoreTeamSection id="core-team">
+        <SectionTitle
+          title="Meet Our Core Team"
+          subtitle="The talented professionals who drive our success and deliver exceptional results for our clients."
+        />
+
+        <CoreTeamGrid>
+          {coreTeamData.map((member, index) => (
+            <CoreTeamMemberCard key={member.id} member={member} index={index} />
+          ))}
+        </CoreTeamGrid>
+      </CoreTeamSection>
 
       <JoinTeamSection id="join-our-team">
         <JoinTeamContent>

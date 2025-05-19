@@ -51,7 +51,7 @@ const ServiceTypesGrid = styled.div`
 `;
 
 const ServiceTypeCard = styled(motion.div)`
-  background-color: #FFFFFF;
+  background-color: #0000002b;
   border-radius: ${({ theme }) => theme.radii.lg};
   box-shadow: ${({ theme }) => theme.shadows.md};
   overflow: hidden;
@@ -77,7 +77,7 @@ const ServiceTypeCard = styled(motion.div)`
     
     h3 {
       font-size: ${({ theme }) => theme.fontSizes.xl};
-      color: #333333;
+      color: #fff;
       margin-bottom: ${({ theme }) => theme.space[3]};
     }
     
@@ -210,7 +210,7 @@ const TechnologiesGrid = styled.div`
 `;
 
 const TechnologyCard = styled(motion.div)`
-  background-color: #FFFFFF;
+  background-color: #0000002b;
   border-radius: ${({ theme }) => theme.radii.lg};
   box-shadow: ${({ theme }) => theme.shadows.md};
   padding: ${({ theme }) => theme.space[6]};
@@ -223,7 +223,7 @@ const TechnologyCard = styled(motion.div)`
   
   h3 {
     font-size: ${({ theme }) => theme.fontSizes.lg};
-    color: #333333;
+    color: #fff;
     margin-bottom: ${({ theme }) => theme.space[2]};
   }
   
@@ -261,7 +261,7 @@ const BenefitItem = styled(motion.div)`
   .content {
     h3 {
       font-size: ${({ theme }) => theme.fontSizes.lg};
-      color: #333333;
+      color: #fff;
       margin-bottom: ${({ theme }) => theme.space[2]};
     }
     
@@ -496,7 +496,7 @@ const MobileDevelopment: React.FC = () => {
                 custom={0}
                 variants={techVariants}
               >
-                <img src="/images/tech/swift.svg" alt="Swift" />
+                <img src="/images/Swift.png" alt="Swift" />
                 <h3>Swift</h3>
                 <p>For native iOS development</p>
               </TechnologyCard>
@@ -508,7 +508,7 @@ const MobileDevelopment: React.FC = () => {
                 custom={1}
                 variants={techVariants}
               >
-                <img src="/images/tech/kotlin.svg" alt="Kotlin" />
+                <img src="/images/Kotlin.png" alt="Kotlin" />
                 <h3>Kotlin</h3>
                 <p>For native Android development</p>
               </TechnologyCard>
@@ -520,7 +520,7 @@ const MobileDevelopment: React.FC = () => {
                 custom={2}
                 variants={techVariants}
               >
-                <img src="/images/tech/react-native.svg" alt="React Native" />
+                <img src="/images/react.png" alt="React Native" />
                 <h3>React Native</h3>
                 <p>For cross-platform development</p>
               </TechnologyCard>
@@ -532,7 +532,7 @@ const MobileDevelopment: React.FC = () => {
                 custom={3}
                 variants={techVariants}
               >
-                <img src="/images/tech/flutter.svg" alt="Flutter" />
+                <img src="/images/Flutter.png" alt="Flutter" />
                 <h3>Flutter</h3>
                 <p>For cross-platform UI development</p>
               </TechnologyCard>
@@ -544,7 +544,7 @@ const MobileDevelopment: React.FC = () => {
                 custom={4}
                 variants={techVariants}
               >
-                <img src="/images/tech/firebase.svg" alt="Firebase" />
+                <img src="/images/Firebase.png" alt="Firebase" />
                 <h3>Firebase</h3>
                 <p>For backend and analytics</p>
               </TechnologyCard>
@@ -556,7 +556,7 @@ const MobileDevelopment: React.FC = () => {
                 custom={5}
                 variants={techVariants}
               >
-                <img src="/images/tech/aws-amplify.svg" alt="AWS Amplify" />
+                <img src="/images/AWS Amplify.png" alt="AWS Amplify" />
                 <h3>AWS Amplify</h3>
                 <p>For cloud integration</p>
               </TechnologyCard>
@@ -568,7 +568,7 @@ const MobileDevelopment: React.FC = () => {
                 custom={6}
                 variants={techVariants}
               >
-                <img src="/images/tech/graphql.svg" alt="GraphQL" />
+                <img src="/images/GraphQL.png" alt="GraphQL" />
                 <h3>GraphQL</h3>
                 <p>For efficient API development</p>
               </TechnologyCard>
@@ -580,7 +580,7 @@ const MobileDevelopment: React.FC = () => {
                 custom={7}
                 variants={techVariants}
               >
-                <img src="/images/tech/figma.svg" alt="Figma" />
+                <img src="/images/Figma.png" alt="Figma" />
                 <h3>Figma</h3>
                 <p>For UI/UX design</p>
               </TechnologyCard>

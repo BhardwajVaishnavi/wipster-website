@@ -41,6 +41,10 @@ const Timeline = styled.div`
   margin: 0 auto;
   padding: ${({ theme }) => theme.space[8]} 0;
 
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    margin-top: 50px;
+  }
+
   &::before {
     content: '';
     position: absolute;
@@ -52,36 +56,60 @@ const Timeline = styled.div`
     transform: translateX(-50%);
 
     @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-      left: 30px;
+      display: none;
     }
   }
 `;
 
 const TimelineItem = styled(motion.div)`
-  display: flex;
-  justify-content: flex-end;
-  padding-right: 50%;
   position: relative;
   margin-bottom: ${({ theme }) => theme.space[16]};
 
   &:nth-child(even) {
-    justify-content: flex-start;
-    padding-right: 0;
-    padding-left: 50%;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    justify-content: flex-start;
-    padding-right: 0;
-    padding-left: 80px;
-
-    &:nth-child(even) {
-      padding-left: 80px;
+    .timeline-content {
+      float: right;
     }
   }
 
-  &:last-child {
-    margin-bottom: 0;
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: ${({ theme }) => theme.space[6]};
+    padding-left: 30px;
+    position: relative;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: 20px;
+      height: calc(100% - 8px);
+      width: 1px;
+      background-color: rgba(101, 31, 90, 0.2);
+      z-index: 1;
+    }
+
+    &:last-child::before {
+      display: none;
+    }
+
+    .timeline-content {
+      float: none;
+      margin-left: 0;
+      max-width: 100%;
+      order: 2;
+      position: relative;
+    }
   }
 `;
 
@@ -102,6 +130,33 @@ const TimelineContent = styled.div`
     color: #333333;
     line-height: ${({ theme }) => theme.lineHeights.relaxed};
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    background: #FFFFFF;
+    border-radius: ${({ theme }) => theme.radii.lg};
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    padding: ${({ theme }) => theme.space[4]};
+    margin-top: 5px;
+    border-left: 3px solid ${({ theme }) => theme.colors.primary};
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+    }
+
+    h3 {
+      font-size: ${({ theme }) => theme.fontSizes.lg};
+      color: ${({ theme }) => theme.colors.primary};
+      margin-bottom: ${({ theme }) => theme.space[2]};
+      font-weight: ${({ theme }) => theme.fontWeights.bold};
+    }
+
+    p {
+      font-size: ${({ theme }) => theme.fontSizes.md};
+      margin-bottom: 0;
+    }
+  }
 `;
 
 const TimelineDot = styled.div`
@@ -113,34 +168,65 @@ const TimelineDot = styled.div`
   border-radius: 50%;
   background: ${({ theme }) => theme.colors.primary};
   transform: translateX(-50%);
+  z-index: 2;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    left: 30px;
+    position: absolute;
+    left: -40px;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    background: ${({ theme }) => theme.colors.primary};
+    border: 2px solid white;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    transform: none;
+    z-index: 2;
+  }
+
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(138, 43, 226, 0.6);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(138, 43, 226, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(138, 43, 226, 0);
+    }
   }
 `;
 
 const TimelineDate = styled.div`
   position: absolute;
   top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 45%;
+  transform: none;
   color: ${({ theme }) => theme.colors.primary};
   font-weight: ${({ theme }) => theme.fontWeights.bold};
 
   ${TimelineItem}:nth-child(even) & {
-    right: 50%;
+    right: 45%;
     left: auto;
-    transform: translateX(50%);
+    transform: none;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    left: 30px;
-    transform: translateX(-150%);
+    position: relative;
+    top: 0;
+    left: 0;
+    order: 1;
+    margin-bottom: 8px;
+    font-size: ${({ theme }) => theme.fontSizes.md};
+    font-weight: ${({ theme }) => theme.fontWeights.bold};
+    color: ${({ theme }) => theme.colors.textLight};
+    background-color: rgba(101, 31, 90, 0.08);
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 4px;
 
     ${TimelineItem}:nth-child(even) & {
       right: auto;
-      left: 30px;
-      transform: translateX(-150%);
+      left: 0;
     }
   }
 `;
@@ -212,6 +298,8 @@ const timelineItemVariants = {
     transition: {
       delay: i * 0.2,
       duration: 0.5,
+      type: "spring",
+      stiffness: 100,
     },
   }),
 };
@@ -270,7 +358,7 @@ const OurStory: React.FC = () => {
         </StoryContainer>
       </Section>
 
-      <Section background="light">
+      <Section background="light" className="timeline-section">
         <SectionTitle
           title="Our Timeline"
           subtitle="Key milestones in our journey from a startup to a leading IT solutions provider."
@@ -284,12 +372,12 @@ const OurStory: React.FC = () => {
             custom={0}
             variants={timelineItemVariants}
           >
-            <TimelineContent>
+            <TimelineContent className="timeline-content">
               <h3>The Beginning</h3>
               <p>Pritish Dhal and Vaishnavi Bhardwaj founded Wipster Technologies with a vision to create innovative IT solutions for businesses.</p>
             </TimelineContent>
-            <TimelineDot />
-            <TimelineDate>2018</TimelineDate>
+            <TimelineDot className="timeline-dot" />
+            <TimelineDate className="lknlno">2018</TimelineDate>
           </TimelineItem>
 
           <TimelineItem
@@ -299,12 +387,12 @@ const OurStory: React.FC = () => {
             custom={1}
             variants={timelineItemVariants}
           >
-            <TimelineContent>
+            <TimelineContent className="timeline-content">
               <h3>First Major Client</h3>
               <p>Secured our first enterprise client and successfully delivered a complex digital transformation project that set the standard for our future work.</p>
             </TimelineContent>
-            <TimelineDot />
-            <TimelineDate>2019</TimelineDate>
+            <TimelineDot className="timeline-dot" />
+            <TimelineDate className="lknlno">2019</TimelineDate>
           </TimelineItem>
 
           <TimelineItem
@@ -314,12 +402,12 @@ const OurStory: React.FC = () => {
             custom={2}
             variants={timelineItemVariants}
           >
-            <TimelineContent>
+            <TimelineContent className="timeline-content">
               <h3>Team Expansion</h3>
               <p>Expanded our team to include specialists in cloud computing, AI, and mobile development, broadening our service offerings.</p>
             </TimelineContent>
-            <TimelineDot />
-            <TimelineDate>2020</TimelineDate>
+            <TimelineDot className="timeline-dot" />
+            <TimelineDate className="lknlno">2020</TimelineDate>
           </TimelineItem>
 
           <TimelineItem
@@ -329,12 +417,12 @@ const OurStory: React.FC = () => {
             custom={3}
             variants={timelineItemVariants}
           >
-            <TimelineContent>
+            <TimelineContent className="timeline-content">
               <h3>New Office</h3>
               <p>Moved to a larger office space to accommodate our growing team and established dedicated innovation labs for research and development.</p>
             </TimelineContent>
-            <TimelineDot />
-            <TimelineDate>2021</TimelineDate>
+            <TimelineDot className="timeline-dot" />
+            <TimelineDate className="lknlno">2021</TimelineDate>
           </TimelineItem>
 
           <TimelineItem
@@ -344,12 +432,12 @@ const OurStory: React.FC = () => {
             custom={4}
             variants={timelineItemVariants}
           >
-            <TimelineContent>
+            <TimelineContent className="timeline-content">
               <h3>International Expansion</h3>
               <p>Began serving international clients and established partnerships with global technology providers to enhance our service capabilities.</p>
             </TimelineContent>
-            <TimelineDot />
-            <TimelineDate>2022</TimelineDate>
+            <TimelineDot className="timeline-dot" />
+            <TimelineDate className="lknlno">2022</TimelineDate>
           </TimelineItem>
 
           <TimelineItem
@@ -359,12 +447,12 @@ const OurStory: React.FC = () => {
             custom={5}
             variants={timelineItemVariants}
           >
-            <TimelineContent>
+            <TimelineContent className="timeline-content">
               <h3>Today</h3>
               <p>Continuing to grow and innovate, with a focus on emerging technologies and sustainable digital solutions for businesses worldwide.</p>
             </TimelineContent>
-            <TimelineDot />
-            <TimelineDate>2023</TimelineDate>
+            <TimelineDot className="timeline-dot" />
+            <TimelineDate className="lknlno">2023</TimelineDate>
           </TimelineItem>
         </Timeline>
       </Section>

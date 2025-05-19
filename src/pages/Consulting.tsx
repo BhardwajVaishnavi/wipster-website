@@ -51,7 +51,7 @@ const ServiceTypesGrid = styled.div`
 `;
 
 const ServiceTypeCard = styled(motion.div)`
-  background-color: #FFFFFF;
+  background-color: #0000002b;
   border-radius: ${({ theme }) => theme.radii.lg};
   box-shadow: ${({ theme }) => theme.shadows.md};
   overflow: hidden;
@@ -77,7 +77,7 @@ const ServiceTypeCard = styled(motion.div)`
     
     h3 {
       font-size: ${({ theme }) => theme.fontSizes.xl};
-      color: #333333;
+      color: #fff;
       margin-bottom: ${({ theme }) => theme.space[3]};
     }
     
@@ -210,7 +210,7 @@ const IndustriesGrid = styled.div`
 `;
 
 const IndustryCard = styled(motion.div)`
-  background-color: #FFFFFF;
+  background-color: #0000002b;
   border-radius: ${({ theme }) => theme.radii.lg};
   box-shadow: ${({ theme }) => theme.shadows.md};
   padding: ${({ theme }) => theme.space[6]};
@@ -223,7 +223,7 @@ const IndustryCard = styled(motion.div)`
   
   h3 {
     font-size: ${({ theme }) => theme.fontSizes.lg};
-    color: #333333;
+    color: #fff;
     margin-bottom: ${({ theme }) => theme.space[2]};
   }
   
@@ -261,7 +261,7 @@ const BenefitItem = styled(motion.div)`
   .content {
     h3 {
       font-size: ${({ theme }) => theme.fontSizes.lg};
-      color: #333333;
+      color: #fff;
       margin-bottom: ${({ theme }) => theme.space[2]};
     }
     
@@ -496,7 +496,7 @@ const Consulting: React.FC = () => {
                 custom={0}
                 variants={industryVariants}
               >
-                <img src="/images/industries/healthcare.svg" alt="Healthcare" />
+                <img src="/images/healthcare.png" alt="Healthcare" />
                 <h3>Healthcare</h3>
                 <p>Improving patient care through technology</p>
               </IndustryCard>
@@ -508,7 +508,7 @@ const Consulting: React.FC = () => {
                 custom={1}
                 variants={industryVariants}
               >
-                <img src="/images/industries/finance.svg" alt="Finance" />
+                <img src="/images/Finance.png" alt="Finance" />
                 <h3>Finance</h3>
                 <p>Secure and efficient financial systems</p>
               </IndustryCard>
@@ -520,7 +520,7 @@ const Consulting: React.FC = () => {
                 custom={2}
                 variants={industryVariants}
               >
-                <img src="/images/industries/retail.svg" alt="Retail" />
+                <img src="/images/Retail.png" alt="Retail" />
                 <h3>Retail</h3>
                 <p>Enhancing customer experience</p>
               </IndustryCard>
@@ -532,7 +532,7 @@ const Consulting: React.FC = () => {
                 custom={3}
                 variants={industryVariants}
               >
-                <img src="/images/industries/manufacturing.svg" alt="Manufacturing" />
+                <img src="/images/Manufacturing.png" alt="Manufacturing" />
                 <h3>Manufacturing</h3>
                 <p>Optimizing production processes</p>
               </IndustryCard>
@@ -544,7 +544,7 @@ const Consulting: React.FC = () => {
                 custom={4}
                 variants={industryVariants}
               >
-                <img src="/images/industries/education.svg" alt="Education" />
+                <img src="/images/Education.png" alt="Education" />
                 <h3>Education</h3>
                 <p>Transforming learning experiences</p>
               </IndustryCard>
@@ -556,7 +556,7 @@ const Consulting: React.FC = () => {
                 custom={5}
                 variants={industryVariants}
               >
-                <img src="/images/industries/government.svg" alt="Government" />
+                <img src="/images/Government.png" alt="Government" />
                 <h3>Government</h3>
                 <p>Modernizing public services</p>
               </IndustryCard>
@@ -580,7 +580,7 @@ const Consulting: React.FC = () => {
                 custom={7}
                 variants={industryVariants}
               >
-                <img src="/images/industries/energy.svg" alt="Energy" />
+                <img src="/images/Energy.png" alt="Energy" />
                 <h3>Energy</h3>
                 <p>Innovative solutions for energy sector</p>
               </IndustryCard>

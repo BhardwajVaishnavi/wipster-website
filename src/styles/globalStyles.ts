@@ -117,6 +117,26 @@ export const GlobalStyles = createGlobalStyle`
       padding: ${({ theme }) => theme.space[12]} 0;
     }
   }
+
+  .timeline-section {
+    @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+      margin-top: 50px;
+    }
+  }
+
+  /* Add margin-top for the class .cROJLz in mobile view */
+  .cROJLz {
+    @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+      margin-top: 50px !important;
+    }
+  }
+
+  /* Add margin-top for the class .ieamhj in mobile view */
+  .ieamhj {
+    @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+      margin-top: 50px !important;
+    }
+  }
 `;
 
 export default GlobalStyles;

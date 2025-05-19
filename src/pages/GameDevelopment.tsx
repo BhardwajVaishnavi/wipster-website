@@ -51,7 +51,7 @@ const ServiceTypesGrid = styled.div`
 `;
 
 const ServiceTypeCard = styled(motion.div)`
-  background-color: #FFFFFF;
+  background-color: #0000002b;
   border-radius: ${({ theme }) => theme.radii.lg};
   box-shadow: ${({ theme }) => theme.shadows.md};
   overflow: hidden;
@@ -77,7 +77,7 @@ const ServiceTypeCard = styled(motion.div)`
     
     h3 {
       font-size: ${({ theme }) => theme.fontSizes.xl};
-      color: #333333;
+      color: #fff;
       margin-bottom: ${({ theme }) => theme.space[3]};
     }
     
@@ -210,7 +210,7 @@ const TechnologiesGrid = styled.div`
 `;
 
 const TechnologyCard = styled(motion.div)`
-  background-color: #FFFFFF;
+  background-color: #0000002b;
   border-radius: ${({ theme }) => theme.radii.lg};
   box-shadow: ${({ theme }) => theme.shadows.md};
   padding: ${({ theme }) => theme.space[6]};
@@ -223,7 +223,7 @@ const TechnologyCard = styled(motion.div)`
   
   h3 {
     font-size: ${({ theme }) => theme.fontSizes.lg};
-    color: #333333;
+    color: #fff;
     margin-bottom: ${({ theme }) => theme.space[2]};
   }
   
@@ -261,7 +261,7 @@ const BenefitItem = styled(motion.div)`
   .content {
     h3 {
       font-size: ${({ theme }) => theme.fontSizes.lg};
-      color: #333333;
+      color: #fff;
       margin-bottom: ${({ theme }) => theme.space[2]};
     }
     
@@ -496,7 +496,7 @@ const GameDevelopment: React.FC = () => {
                 custom={0}
                 variants={techVariants}
               >
-                <img src="/images/tech/unity.svg" alt="Unity" />
+                <img src="/images/Unity.png" alt="Unity" />
                 <h3>Unity</h3>
                 <p>For cross-platform game development</p>
               </TechnologyCard>
@@ -508,7 +508,7 @@ const GameDevelopment: React.FC = () => {
                 custom={1}
                 variants={techVariants}
               >
-                <img src="/images/tech/unreal.svg" alt="Unreal Engine" />
+                <img src="/images/Unreal Engine.png" alt="Unreal Engine" />
                 <h3>Unreal Engine</h3>
                 <p>For high-fidelity graphics and gameplay</p>
               </TechnologyCard>
@@ -520,7 +520,7 @@ const GameDevelopment: React.FC = () => {
                 custom={2}
                 variants={techVariants}
               >
-                <img src="/images/tech/csharp.svg" alt="C#" />
+                <img src="/images/C.png" alt="C#" />
                 <h3>C#</h3>
                 <p>For Unity game development</p>
               </TechnologyCard>
@@ -532,7 +532,7 @@ const GameDevelopment: React.FC = () => {
                 custom={3}
                 variants={techVariants}
               >
-                <img src="/images/tech/cpp.svg" alt="C++" />
+                <img src="/images/Cpluse.png" alt="C++" />
                 <h3>C++</h3>
                 <p>For Unreal Engine development</p>
               </TechnologyCard>
@@ -544,7 +544,7 @@ const GameDevelopment: React.FC = () => {
                 custom={4}
                 variants={techVariants}
               >
-                <img src="/images/tech/blender.svg" alt="Blender" />
+                <img src="/images/Blender.png" alt="Blender" />
                 <h3>Blender</h3>
                 <p>For 3D modeling and animation</p>
               </TechnologyCard>
@@ -556,7 +556,7 @@ const GameDevelopment: React.FC = () => {
                 custom={5}
                 variants={techVariants}
               >
-                <img src="/images/tech/photoshop.svg" alt="Adobe Creative Suite" />
+                <img src="/images/AdobeCreativeSuite.png" alt="Adobe Creative Suite" />
                 <h3>Adobe Creative Suite</h3>
                 <p>For 2D art and UI design</p>
               </TechnologyCard>
@@ -568,7 +568,7 @@ const GameDevelopment: React.FC = () => {
                 custom={6}
                 variants={techVariants}
               >
-                <img src="/images/tech/aws.svg" alt="AWS" />
+                <img src="/images/AWS.png" alt="AWS" />
                 <h3>AWS</h3>
                 <p>For game server infrastructure</p>
               </TechnologyCard>
@@ -580,7 +580,7 @@ const GameDevelopment: React.FC = () => {
                 custom={7}
                 variants={techVariants}
               >
-                <img src="/images/tech/firebase.svg" alt="Firebase" />
+                <img src="/images/Firebase.png" alt="Firebase" />
                 <h3>Firebase</h3>
                 <p>For backend services and analytics</p>
               </TechnologyCard>

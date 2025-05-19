@@ -10,7 +10,7 @@ import { projectsData } from '../data/projectsData';
 import { FaArrowRight } from 'react-icons/fa';
 
 const HeroSection = styled(Section)`
-  min-height: 60vh;
+  min-height: 70vh;
   display: flex;
   align-items: center;
   position: relative;
@@ -162,7 +162,7 @@ const TechBadge = styled.span`
 
 const CTASection = styled(Section)`
   text-align: center;
-  background: linear-gradient(135deg, ${({ theme }) => theme.colors.primary}, ${({ theme }) => theme.colors.accent});
+  background: #0000002b;
   color: ${({ theme }) => theme.colors.light};
   
   h2 {
@@ -314,35 +314,24 @@ const Portfolio: React.FC = () => {
       </Section>
       
       <CTASection>
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          Have a Project in Mind?
-        </motion.h2>
-        
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2, duration: 0.5 }}
-        >
-          Let's discuss how we can bring your vision to life. Our team is ready to help you create a solution that meets your unique needs and drives your business forward.
-        </motion.p>
+        <SectionTitle
+          title="Ready to Join Our Success Stories?"
+          subtitle="Let's discuss how we can help your business achieve its goals."
+        />
         
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.4, duration: 0.5 }}
+          transition={{ duration: 0.5 }}
+          style={{ textAlign: 'center' }}
         >
           <Button
-            variant="outline"
-            size="large"
             as={Link}
             to="/contact"
+            size="large"
+            icon={<FaArrowRight />}
+            iconPosition="right"
           >
             Get in Touch
           </Button>

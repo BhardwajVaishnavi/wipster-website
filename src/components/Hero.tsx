@@ -4,11 +4,10 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import Button from './Button';
 import AnimatedText from './AnimatedText';
-import VideoBackground from './VideoBackground';
 import AnimatedBackground from './AnimatedBackground';
 import FloatingElements from './FloatingElements';
-import { FaArrowRight, FaPlay } from 'react-icons/fa';
-import { getUnsplashImage, unsplashImages, unsplashVideos } from '../utils/unsplashImages';
+import { FaArrowRight } from 'react-icons/fa';
+import { getUnsplashImage, unsplashImages } from '../utils/unsplashImages';
 
 const HeroContainer = styled.div`
   position: relative;
@@ -58,7 +57,7 @@ const HeroContent = styled.div`
   backdrop-filter: blur(5px);
   border-radius: 20px;
   padding: ${({ theme }) => theme.space[10]};
-  background: rgb(255 255 255 / 8%);
+  background: rgba(255, 255, 255, 0.08);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   margin-top: -20px; /* Adjust vertical position */
   border: 1px solid rgba(255, 255, 255, 0.05);
@@ -127,58 +126,6 @@ const ButtonGroup = styled(motion.div)`
   }
 `;
 
-const PlayButtonWrapper = styled(motion.div)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: ${({ theme }) => theme.space[8]};
-`;
-
-const PlayButton = styled(motion.button)`
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  background-color: ${({ theme }) => theme.colors.primary};
-  color: ${({ theme }) => theme.colors.light};
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-  position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transform: translateX(-100%);
-    transition: 0.6s;
-  }
-
-  &:hover::before {
-    transform: translateX(100%);
-  }
-
-  svg {
-    font-size: 1.5rem;
-    margin-left: 5px;
-  }
-`;
-
-const PlayButtonText = styled.span`
-  color: ${({ theme }) => theme.colors.light};
-  margin-left: ${({ theme }) => theme.space[4]};
-  font-weight: ${({ theme }) => theme.fontWeights.medium};
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  letter-spacing: 0.5px;
-`;
-
 const ScrollIndicator = styled(motion.div)`
   position: absolute;
   bottom: ${({ theme }) => theme.space[4]};
@@ -229,16 +176,6 @@ const ScrollIndicator = styled(motion.div)`
 `;
 
 // Animation variants
-const titleAnimation = {
-  hidden: { opacity: 0, y: -20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-    },
-  },
-};
 
 const subtitleAnimation = {
   hidden: { opacity: 0, y: 20 },
@@ -261,19 +198,6 @@ const buttonGroupAnimation = {
     transition: {
       duration: 0.7,
       delay: 0.5,
-      ease: [0.215, 0.61, 0.355, 1],
-    },
-  },
-};
-
-const playButtonAnimation = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      duration: 0.7,
-      delay: 0.7,
       ease: [0.215, 0.61, 0.355, 1],
     },
   },
@@ -355,19 +279,7 @@ const Hero: React.FC<HeroProps> = ({ useVideo = true }) => {
               </Button>
             </ButtonGroup>
 
-            <PlayButtonWrapper
-              initial="hidden"
-              animate="visible"
-              variants={playButtonAnimation}
-            >
-              <PlayButton
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <FaPlay />
-              </PlayButton>
-              <PlayButtonText>Watch Our Story</PlayButtonText>
-            </PlayButtonWrapper>
+
           </HeroContent>
 
           <ScrollIndicator
@@ -431,19 +343,7 @@ const Hero: React.FC<HeroProps> = ({ useVideo = true }) => {
               </Button>
             </ButtonGroup>
 
-            <PlayButtonWrapper
-              initial="hidden"
-              animate="visible"
-              variants={playButtonAnimation}
-            >
-              <PlayButton
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <FaPlay />
-              </PlayButton>
-              <PlayButtonText>Watch Our Story</PlayButtonText>
-            </PlayButtonWrapper>
+
           </HeroContent>
 
           <ScrollIndicator
